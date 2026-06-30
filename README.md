@@ -93,6 +93,24 @@ uv run scripts/run_pipeline.py --overwrite
 > `data/lancedb` and `data/cocoindex` (or use the script's `--overwrite`) to start
 > from a clean slate.
 
+## Query the table
+
+[`scripts/query.py`](scripts/query.py) runs a multimodal search against the table
+built above. CLIP maps text and images into the same vector space, so a
+natural-language query is matched directly against the `image_embedding` column.
+Because every row already holds the product's image bytes and metadata, a single
+query returns the ranked matches and everything needed to render them, with no
+second lookup:
+
+```bash
+uv run scripts/query.py "brown leather lace-up boots"
+```
+
+It prints the top matches (title, brand, type, and a little metadata) and writes a
+labeled grid of their images to `data/query_results.png`, opened straight from the
+`image_bytes` stored in each row. The query defaults to a sensible example, and
+`--limit N` controls how many matches to return.
+
 ## Blog experiments
 
 ### Live source changes
