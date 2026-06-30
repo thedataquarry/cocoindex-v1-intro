@@ -1,0 +1,16 @@
+[project]
+name = "cocoindex-v1-intro"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "cocoindex @ file:///Users/prrao/code/cocoindex/target/wheels/cocoindex-999.0.0-cp311-abi3-macosx_11_0_arm64.whl",
+    "lancedb>=0.33.0",
+    "pillow>=11.0.0",
+    "pydantic>=2.0.0",
+    "pyarrow>=24.0.0",
+    "sentence-transformers>=3.3.1",
+    "torch>=2.5.0",
+    "transformers>=4.46.0",
+]
