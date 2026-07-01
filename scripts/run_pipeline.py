@@ -17,7 +17,6 @@ from cocoindex.connectors import localfs
 from cocoindex.ops.sentence_transformers import SentenceTransformerEmbedder
 from cocoindex.resources.file import PatternFilePathMatcher
 from cocoindex.resources.schema import VectorSchema, VectorSchemaProvider
-from lancedb.db import AsyncConnection as LanceAsyncConnection
 from numpy.typing import NDArray
 from PIL import Image
 from sentence_transformers import SentenceTransformer
@@ -98,7 +97,7 @@ class ClipImageEmbedder(VectorSchemaProvider):
 
 
 # Shared resources, bound once in the lifespan and reached through context.
-LANCEDB = coco.ContextKey[LanceAsyncConnection]("lancedb")
+LANCEDB = coco.ContextKey[coco_lancedb.LanceAsyncConnection]("lancedb")
 TEXT_EMBEDDER = coco.ContextKey[SentenceTransformerEmbedder]("text_embedder", detect_change=True)
 IMAGE_EMBEDDER = coco.ContextKey[ClipImageEmbedder]("image_embedder", detect_change=True)
 
