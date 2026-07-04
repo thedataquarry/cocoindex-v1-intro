@@ -31,7 +31,6 @@ TABLE_NAME = "abo_shoes"
 APP_NAME = "abo-shoes-lancedb"
 TEXT_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 IMAGE_EMBEDDING_MODEL = "clip-ViT-B-32"
-LANCEDB_TRANSACTIONS_BEFORE_OPTIMIZE = 500
 
 LIMIT: int | None = None
 LIVE = False
@@ -323,7 +322,6 @@ async def app_main() -> None:
         LANCEDB,
         TABLE_NAME,
         table_schema,
-        num_transactions_before_optimize=LANCEDB_TRANSACTIONS_BEFORE_OPTIMIZE,
     )
 
     source = localfs.walk_dir(
@@ -386,10 +384,7 @@ def main() -> None:
         shutil.rmtree(COCOINDEX_STATE_DB.parent, ignore_errors=True)
     app.update_blocking(live=LIVE)
     if not LIVE:
-        print(
-            f"Completed run for table '{TABLE_NAME}' "
-            f"with {LANCEDB_TRANSACTIONS_BEFORE_OPTIMIZE} transactions before optimize."
-        )
+        print(f"Completed run for table '{TABLE_NAME}'.")
 
 
 if __name__ == "__main__":

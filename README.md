@@ -1,11 +1,11 @@
-# cocoindex-v1-intro
+# CocoIndex v1 demo with LanceDB
 
 Code for blog post introducing CocoIndex's v1 API in action on a multimodal indexing pipeline with [LanceDB](https://docs.lancedb.com).
 
 The pipeline and experiment scripts here were written with the help of CocoIndex's
 [AI coding agent skill](https://cocoindex.io/docs/getting_started/ai_coding_agents/).
 
-## Recreate the ABO Sample Data
+## Dataset
 
 This repo uses a small, reproducible slice of the [Amazon Berkeley Objects
 dataset](https://amazon-berkeley-objects.s3.amazonaws.com/index.html) for the
@@ -70,9 +70,9 @@ cocoindex update -L scripts/run_pipeline.py
 ```
 
 `-L` keeps one engine watching `data/abo/listings/` and applies each change to the
-same LanceDB table. The pipeline mounts one LanceDB target with
-`num_transactions_before_optimize=500`, so CocoIndex batches target maintenance
-during the initial 1,000-row ingest and during later source changes.
+same LanceDB table. The pipeline mounts one LanceDB target, and CocoIndex batches
+target maintenance automatically based on LanceDB's own table and index state during
+the initial 1,000-row ingest and during later source changes.
 
 The file also stays runnable as a plain script, which adds a few convenience flags
 the CocoIndex CLI doesn't expose:

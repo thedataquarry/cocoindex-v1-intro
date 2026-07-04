@@ -161,7 +161,6 @@ async def app_main() -> None:
         rp.LANCEDB,
         rp.TABLE_NAME,
         table_schema,
-        num_transactions_before_optimize=rp.LANCEDB_TRANSACTIONS_BEFORE_OPTIMIZE,
     )
 
     source = localfs.walk_dir(
