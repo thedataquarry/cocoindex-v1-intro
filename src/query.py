@@ -7,7 +7,7 @@ ranked matches *and* everything we need to render them, with no second lookup.
 
 Run it with::
 
-    uv run scripts/query.py "white leather sneakers with a chunky sole"
+    uv run src/query.py "white leather sneakers with a chunky sole"
 
 It prints the top matches and writes a labeled grid of their images to
 ``data/query_results.png``.

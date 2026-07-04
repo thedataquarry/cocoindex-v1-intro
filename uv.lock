@@ -68,7 +68,7 @@ dependencies = [
     { name = "watchdog" },
 ]
 wheels = [
-    { filename = "cocoindex-999.0.0-cp311-abi3-macosx_11_0_arm64.whl", hash = "sha256:31e7e02b12c85996a8eff07a6b28fe07564faa19096061240b63335c9eac2660" },
+    { filename = "cocoindex-999.0.0-cp311-abi3-macosx_11_0_arm64.whl", hash = "sha256:3477be7aa39b6eff8526916d6b26e5ae11ff323e4eedeb0920423f9f5f482b19" },
 ]
 
 [package.metadata]

@@ -1,5 +1,5 @@
 import sys, lancedb
-sys.path.insert(0, "scripts")
+sys.path.insert(0, "src")
 import run_pipeline as rp
 t = lancedb.connect(str(rp.LANCEDB_URI)).open_table(rp.TABLE_NAME)
 cols = [c for c in t.schema.names]

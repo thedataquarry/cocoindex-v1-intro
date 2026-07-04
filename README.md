@@ -1,9 +1,7 @@
 # CocoIndex v1 demo with LanceDB
 
-Code for blog post introducing CocoIndex's v1 API in action on a multimodal indexing pipeline with [LanceDB](https://docs.lancedb.com).
-
-The pipeline and experiment scripts here were written with the help of CocoIndex's
-[AI coding agent skill](https://cocoindex.io/docs/getting_started/ai_coding_agents/).
+Code for blog post introducing v1 of [CocoIndex](https://cocoindex.io/), an incremental engine for keeping context fresh.
+The demo shows CocoIndex in action on a multimodal indexing pipeline with [LanceDB](https://docs.lancedb.com), a multimodal lakehouse that can act as the target from which agents retrieve multimodal context from.
 
 ## Dataset
 
@@ -14,7 +12,7 @@ blog examples. The data is not committed to the repo.
 From the repo root, run:
 
 ```bash
-uv run scripts/prepare_abo_subset.py
+uv run src/prepare_abo_subset.py
 ```
 
 The script creates the same local sample used for the post:
@@ -42,7 +40,7 @@ data/
 ```
 
 The constants that define the sample are at the top of
-`scripts/prepare_abo_subset.py`:
+`src/prepare_abo_subset.py`:
 
 ```python
 DATA_DIR = Path("data")
@@ -56,17 +54,17 @@ dataset, cite the ABO CVPR 2022 paper referenced on the official dataset page.
 
 ## Run the pipeline
 
-[`scripts/run_pipeline.py`](scripts/run_pipeline.py) is the single, base pipeline.
+[`src/run_pipeline.py`](src/run_pipeline.py) is the single, base pipeline.
 It loads the ABO subset (above) into a local LanceDB table, computing a text
 embedding (`all-MiniLM-L6-v2`) and an image embedding (CLIP `clip-ViT-B-32`) per
 product. The file defines a CocoIndex `app`, so the CocoIndex CLI runs it directly:
 
 ```bash
 # catch-up: scan, sync, exit
-cocoindex update scripts/run_pipeline.py
+cocoindex update src/run_pipeline.py
 
  # live: keep watching for changes
-cocoindex update -L scripts/run_pipeline.py
+cocoindex update -L src/run_pipeline.py
 ```
 
 `-L` keeps one engine watching `data/abo/listings/` and applies each change to the
@@ -78,7 +76,7 @@ The file also stays runnable as a plain script, which adds a few convenience fla
 the CocoIndex CLI doesn't expose:
 
 ```bash
-uv run scripts/run_pipeline.py --overwrite
+uv run src/run_pipeline.py --overwrite
 ```
 
 - `--limit N` — ingest only the first N products, for fast iteration.
@@ -95,7 +93,7 @@ uv run scripts/run_pipeline.py --overwrite
 
 ## Query the table
 
-[`scripts/query.py`](scripts/query.py) runs a multimodal search against the table
+[`src/query.py`](src/query.py) runs a multimodal search against the table
 built above. CLIP maps text and images into the same vector space, so a
 natural-language query is matched directly against the `image_embedding` column.
 Because every row already holds the product's image bytes and metadata, a single
@@ -103,7 +101,7 @@ query returns the ranked matches and everything needed to render them, with no
 second lookup:
 
 ```bash
-uv run scripts/query.py "brown leather lace-up boots"
+uv run src/query.py "brown leather lace-up boots"
 ```
 
 It prints the top matches (title, brand, type, and a little metadata) and writes a
@@ -116,7 +114,7 @@ labeled grid of their images to `data/query_results.png`, opened straight from t
 ### Live source changes
 
 ```bash
-uv run scripts/run_live_source_experiment.py --overwrite
+uv run src/run_live_source_experiment.py --overwrite
 ```
 
 This drives the base pipeline (the same app as `cocoindex update -L`) through one
@@ -127,7 +125,7 @@ then mutates the source files and waits for the target to settle after each step
 - add the listing back and wait for 1,000 target rows
 - edit another listing's title and wait for that target row to change
 
-You can reproduce this by hand too: run `cocoindex update -L scripts/run_pipeline.py`
+You can reproduce this by hand too: run `cocoindex update -L src/run_pipeline.py`
 in one terminal and add, remove, or edit JSON files under `data/abo/listings/` in
 another.
 
@@ -137,13 +135,13 @@ A schema or logic change to the base pipeline is just a code edit: change the ro
 model or a transformation function in `run_pipeline.py` and re-run
 `cocoindex update`, the same as always. To exercise that end to end (and assert
 that embeddings stay memoized), this experiment is self-contained:
-[`scripts/run_lancedb_schema_experiment.py`](scripts/run_lancedb_schema_experiment.py)
+[`src/run_lancedb_schema_experiment.py`](src/run_lancedb_schema_experiment.py)
 reuses the base building blocks from `run_pipeline.py`, adds a nullable
 `product_bucket` column plus a function that derives it, and drives one app through
 three phases against the same table:
 
 ```bash
-uv run scripts/run_lancedb_schema_experiment.py --overwrite
+uv run src/run_lancedb_schema_experiment.py --overwrite
 ```
 
 - `base` — original `ProductRow` schema; every embedding computed once
@@ -154,5 +152,5 @@ It keeps per-function call counters and asserts the memoization behavior (zero
 embedding calls in the last two phases). For a quick smoke test:
 
 ```bash
-uv run scripts/run_lancedb_schema_experiment.py --limit 5 --overwrite --no-indexes
+uv run src/run_lancedb_schema_experiment.py --limit 5 --overwrite --no-indexes
 ```

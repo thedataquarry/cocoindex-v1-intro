@@ -71,11 +71,7 @@ class ClipImageEmbedder(VectorSchemaProvider):
         return self._model
 
     async def __coco_vector_schema__(self) -> VectorSchema:
-        model = self._get_model()
-        if hasattr(model, "get_embedding_dimension"):
-            dim = model.get_embedding_dimension()
-        else:
-            dim = model.get_sentence_embedding_dimension()
+        dim = self._get_model().get_embedding_dimension()
         return VectorSchema(dtype=np.dtype(np.float32), size=int(dim))
 
     @coco.fn.as_async(batching=True, runner=coco.GPU, max_batch_size=64)
