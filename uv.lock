@@ -55,8 +55,8 @@ wheels = [
 
 [[package]]
 name = "cocoindex"
-version = "999.0.0"
-source = { path = "/Users/prrao/code/cocoindex/target/wheels/cocoindex-999.0.0-cp311-abi3-macosx_11_0_arm64.whl" }
+version = "1.0.15"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
     { name = "msgspec" },
@@ -67,79 +67,18 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "watchdog" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/90/a9/ff6d31623f043ced41cda2f67759b4dc06a6616d56868af65b187b25aa3e/cocoindex-1.0.15.tar.gz", hash = "sha256:56b17f8a7965c944b8ed215f8383f779798dbc9eb7faaca8625be615a88bc09d", size = 667538, upload-time = "2026-07-04T19:54:15.725Z" }
 wheels = [
-    { filename = "cocoindex-999.0.0-cp311-abi3-macosx_11_0_arm64.whl", hash = "sha256:3477be7aa39b6eff8526916d6b26e5ae11ff323e4eedeb0920423f9f5f482b19" },
+    { url = "https://files.pythonhosted.org/packages/17/c1/40fb795a2c3f97207e14f2d5fa87b2e47aee1970b6f66802c56d093f4af0/cocoindex-1.0.15-cp311-abi3-macosx_10_12_x86_64.whl", hash = "sha256:70138436b014b2fb90bc43763975f31a7cf80a8f9b468aa5cf68fb6811c60a2b", size = 9167586, upload-time = "2026-07-04T19:54:14.106Z" },
+    { url = "https://files.pythonhosted.org/packages/43/ae/f7cec66f532ef63c4dca87a1d73b6310d250bade083a3da351460b2880bc/cocoindex-1.0.15-cp311-abi3-macosx_11_0_arm64.whl", hash = "sha256:9bcbc578f5799f6b004815cfee90ee413f184bd000712640612212ec7a9ac75f", size = 9241373, upload-time = "2026-07-04T19:54:09.551Z" },
+    { url = "https://files.pythonhosted.org/packages/09/d7/1c652c850c410a3cfc5a9b94f91e9be0491435f96144766f1b90016665ee/cocoindex-1.0.15-cp311-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:e3a5c6e25db00fb0061a0051b5e02364769ebbb525d10d7f12c709414630797f", size = 9117193, upload-time = "2026-07-04T19:54:00.263Z" },
+    { url = "https://files.pythonhosted.org/packages/79/e5/1d206a356bbac341bb67a4d03f2227505744446e3ab33f7b0280583ae271/cocoindex-1.0.15-cp311-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:7db759b2c5bdb8151e3178ae4be957c0b35cfa4f460e3216e285dd9b1076d850", size = 9330352, upload-time = "2026-07-04T19:54:05.233Z" },
+    { url = "https://files.pythonhosted.org/packages/62/aa/96e5ba1b5f611ac8e7b33d21b9e791b47f1db17e60736e0c11260663ff82/cocoindex-1.0.15-cp311-abi3-win_amd64.whl", hash = "sha256:dcb2b4467b788266d4388e44aeeaa86bba9ce0c86ae80451d45a79cd189eceb5", size = 9556549, upload-time = "2026-07-04T19:54:17.222Z" },
+    { url = "https://files.pythonhosted.org/packages/7d/36/7431c7651238eb910e4e06072a72af62dc47642528575435c1b8bf117c78/cocoindex-1.0.15-cp314-cp314t-macosx_11_0_arm64.whl", hash = "sha256:98628142bfab8abda752c9eef295076ef696f907e828c3fb3c812faf6964fb70", size = 9238152, upload-time = "2026-07-04T19:54:11.925Z" },
+    { url = "https://files.pythonhosted.org/packages/a2/25/624cb08d913b5a58db0f61d57190be717ceb136320e7bb3bbda348348d6b/cocoindex-1.0.15-cp314-cp314t-manylinux_2_28_aarch64.whl", hash = "sha256:7af9741210560b1b64b02bac3e08458fc89650553e159b84d6a63472f944cf1e", size = 9110734, upload-time = "2026-07-04T19:54:03.113Z" },
+    { url = "https://files.pythonhosted.org/packages/4e/b5/c9f18eba61cabc4eb46a6577e0f7626948598923ed5ffd45fcfb7671b495/cocoindex-1.0.15-cp314-cp314t-manylinux_2_28_x86_64.whl", hash = "sha256:0ab6d3262819f8a2e6c55072c8085da13b7fffea59c6dd541fcd671e0d9179b2", size = 9333433, upload-time = "2026-07-04T19:54:07.755Z" },
+    { url = "https://files.pythonhosted.org/packages/1e/0d/1f0cbf90041e1232a53b26c96b108a2a9148fb4ddaab8c3c5a49ed5a52ef/cocoindex-1.0.15-cp314-cp314t-win_amd64.whl", hash = "sha256:f0d1c1ff58afbc0839f88f4c46735c1ce9789ea4d2829b3d3e4a5350fbdd1ab8", size = 9556972, upload-time = "2026-07-04T19:54:19.048Z" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "aiobotocore", marker = "extra == 'all'", specifier = ">=2.0.0" },
-    { name = "aiobotocore", marker = "extra == 'amazon-s3'", specifier = ">=2.0.0" },
-    { name = "aiohttp", marker = "extra == 'all'", specifier = ">=3.9.0" },
-    { name = "aiohttp", marker = "extra == 'doris'", specifier = ">=3.9.0" },
-    { name = "aiomysql", marker = "extra == 'all'", specifier = ">=0.2.0" },
-    { name = "aiomysql", marker = "extra == 'doris'", specifier = ">=0.2.0" },
-    { name = "apache-iggy", marker = "extra == 'all'", specifier = ">=0.8.0" },
-    { name = "apache-iggy", marker = "extra == 'iggy'", specifier = ">=0.8.0" },
-    { name = "asyncpg", marker = "extra == 'all'", specifier = ">=0.31.0" },
-    { name = "asyncpg", marker = "extra == 'postgres'", specifier = ">=0.31.0" },
-    { name = "click", specifier = ">=8.1.8" },
-    { name = "colpali-engine", marker = "extra == 'all'" },
-    { name = "colpali-engine", marker = "extra == 'colpali'" },
-    { name = "confluent-kafka", marker = "extra == 'all'", specifier = ">=2.6" },
-    { name = "confluent-kafka", marker = "extra == 'kafka'", specifier = ">=2.6" },
-    { name = "faiss-cpu", marker = "extra == 'all'", specifier = ">=1.7" },
-    { name = "faiss-cpu", marker = "extra == 'entity-resolution'", specifier = ">=1.7" },
-    { name = "faiss-cpu", marker = "extra == 'entity-resolution-llm'", specifier = ">=1.7" },
-    { name = "falkordb", marker = "extra == 'all'", specifier = ">=1.1.0" },
-    { name = "falkordb", marker = "extra == 'falkordb'", specifier = ">=1.1.0" },
-    { name = "google-api-python-client", marker = "extra == 'all'", specifier = ">=2.0.0" },
-    { name = "google-api-python-client", marker = "extra == 'google-drive'", specifier = ">=2.0.0" },
-    { name = "google-auth", marker = "extra == 'all'", specifier = ">=2.0.0" },
-    { name = "google-auth", marker = "extra == 'google-drive'", specifier = ">=2.0.0" },
-    { name = "google-auth-httplib2", marker = "extra == 'all'", specifier = ">=0.2.0" },
-    { name = "google-auth-httplib2", marker = "extra == 'google-drive'", specifier = ">=0.2.0" },
-    { name = "httplib2", marker = "extra == 'all'", specifier = ">=0.22.0" },
-    { name = "httplib2", marker = "extra == 'google-drive'", specifier = ">=0.22.0" },
-    { name = "instructor", marker = "extra == 'all'", specifier = ">=1.0" },
-    { name = "instructor", marker = "extra == 'entity-resolution-llm'", specifier = ">=1.0" },
-    { name = "lancedb", marker = "extra == 'all'", specifier = ">=0.34.0" },
-    { name = "lancedb", marker = "extra == 'lancedb'", specifier = ">=0.34.0" },
-    { name = "litellm", marker = "extra == 'all'", specifier = ">=1.81.0" },
-    { name = "litellm", marker = "extra == 'entity-resolution-llm'", specifier = ">=1.81.0" },
-    { name = "litellm", marker = "extra == 'litellm'", specifier = ">=1.81.0" },
-    { name = "msgspec", specifier = ">=0.19.0" },
-    { name = "neo4j", marker = "extra == 'all'", specifier = ">=5.18.0" },
-    { name = "neo4j", marker = "extra == 'neo4j'", specifier = ">=5.18.0" },
-    { name = "numpy", specifier = ">=1.23.2" },
-    { name = "oci", marker = "extra == 'all'", specifier = ">=2.0" },
-    { name = "oci", marker = "extra == 'oci'", specifier = ">=2.0" },
-    { name = "pgvector", marker = "extra == 'all'", specifier = ">=0.4.2" },
-    { name = "psutil", specifier = ">=7.2.1" },
-    { name = "pyarrow", marker = "extra == 'all'", specifier = ">=23.0.0" },
-    { name = "pyarrow", marker = "extra == 'lancedb'", specifier = ">=23.0.0" },
-    { name = "pymysql", marker = "extra == 'all'", specifier = ">=1.1.0" },
-    { name = "pymysql", marker = "extra == 'doris'", specifier = ">=1.1.0" },
-    { name = "python-dotenv", specifier = ">=1.1.0" },
-    { name = "qdrant-client", marker = "extra == 'all'", specifier = ">=1.6.0" },
-    { name = "qdrant-client", marker = "extra == 'qdrant'", specifier = ">=1.6.0" },
-    { name = "rich", specifier = ">=14.0.0" },
-    { name = "sentence-transformers", marker = "extra == 'all'", specifier = ">=3.3.1" },
-    { name = "sentence-transformers", marker = "extra == 'sentence-transformers'", specifier = ">=3.3.1" },
-    { name = "sqlite-vec", marker = "extra == 'all'", specifier = ">=0.1.6" },
-    { name = "sqlite-vec", marker = "extra == 'sqlite'", specifier = ">=0.1.6" },
-    { name = "surrealdb", marker = "extra == 'all'", specifier = ">=1.0.0" },
-    { name = "surrealdb", marker = "extra == 'surrealdb'", specifier = ">=1.0.0" },
-    { name = "turbopuffer", marker = "extra == 'all'", specifier = ">=0.5.0" },
-    { name = "turbopuffer", marker = "extra == 'turbopuffer'", specifier = ">=0.5.0" },
-    { name = "typing-extensions", specifier = ">=4.12" },
-    { name = "valkey-glide", marker = "extra == 'all'", specifier = ">=2.4.0" },
-    { name = "valkey-glide", marker = "extra == 'valkey'", specifier = ">=2.4.0" },
-    { name = "watchdog", specifier = ">=6.0.0" },
-    { name = "zvec", marker = "extra == 'all'", specifier = ">=0.5.0" },
-    { name = "zvec", marker = "extra == 'zvec'", specifier = ">=0.5.0" },
-]
-provides-extras = ["all", "amazon-s3", "colpali", "doris", "entity-resolution", "entity-resolution-llm", "falkordb", "google-drive", "iggy", "kafka", "lancedb", "litellm", "neo4j", "oci", "postgres", "qdrant", "sentence-transformers", "sqlite", "surrealdb", "turbopuffer", "valkey", "zvec"]
 
 [[package]]
 name = "cocoindex-v1-intro"
@@ -158,7 +97,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "cocoindex", path = "/Users/prrao/code/cocoindex/target/wheels/cocoindex-999.0.0-cp311-abi3-macosx_11_0_arm64.whl" },
+    { name = "cocoindex", specifier = ">=1.0.15" },
     { name = "lancedb", specifier = ">=0.34.0" },
     { name = "pillow", specifier = ">=11.0.0" },
     { name = "pyarrow", specifier = ">=24.0.0" },
