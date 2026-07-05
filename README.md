@@ -1,6 +1,6 @@
 # CocoIndex v1 demo with LanceDB
 
-Code for blog post introducing v1 of [CocoIndex](https://cocoindex.io/), an incremental engine for keeping context fresh.
+Code for [blog post](https://thedataquarry.com/blog/incremental-multimodal-data-pipelines-with-cocoindex-and-lancedb/) introducing v1 of [CocoIndex](https://cocoindex.io/), an incremental engine for keeping context fresh.
 The demo shows CocoIndex in action on a multimodal indexing pipeline with [LanceDB](https://docs.lancedb.com), a multimodal lakehouse that can act as the target from which agents retrieve multimodal context from.
 
 ## Dataset
